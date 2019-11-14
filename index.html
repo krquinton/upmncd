@@ -13,7 +13,7 @@
     <script src="dist/leaflet.awesome-markers.js"></script>
 
     <script src="healthCenter.js"></script>
-	
+	<script src="district2grid.js"></script>
 	<script src="district2grid.js"></script>
 	<script src="district3grid.js"></script>
     <script src="district4grid.js"></script>
@@ -208,6 +208,11 @@
 		}
 
 		// Adding Barangay Layer to the map
+		var d1grids = L.geoJson(district1grid, {
+		    style: style,
+		    onEachFeature: onEachFeature
+		}).addTo(map);
+		
 		var d2grids = L.geoJson(district2grid, {
 		    style: style,
 		    onEachFeature: onEachFeature
@@ -231,6 +236,7 @@
 
 		var overlayMaps = {
 		    'Health Centers': healthCenter,
+			'District 1 Grids' : d1grids,
 			'District 2 Grids' : d2grids,
 			'District 3 Grids' : d3grids,
 			'District 4 Grids' : d4grids
